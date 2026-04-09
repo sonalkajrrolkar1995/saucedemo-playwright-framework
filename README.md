@@ -1,125 +1,91 @@
 # SauceDemo Playwright Automation Framework
 
-This is a test automation framework built with Playwright and JavaScript 
-for the website https://www.saucedemo.com
+Automated test suite for [saucedemo.com](https://www.saucedemo.com) built with Playwright and JavaScript. Covers UI and API tests across Chrome and Firefox.
 
-It runs 86 automated tests across Chrome and Firefox and all of them pass.
-
----
-
-## Test Results
-
-- Tests: 86 passing, 0 failing
-- Browsers: Chrome and Firefox
-- Time to run all tests: 1.4 minutes
+**86 tests. 0 failures.**
 
 ---
 
-## What is tested
+## Test Coverage
 
-- Login with correct and wrong credentials
-- Locked out user error messages
-- All 6 products on the products page
-- Sorting products by name and price
-- Adding and removing items from the cart
-- Full checkout from start to finish
-- Error messages when checkout fields are empty
-- The burger menu and logout
-- API response status and speed
+- Login: valid credentials, invalid credentials, locked out user, empty fields
+- Products page: product count, names, sorting by name and price
+- Cart: adding items, removing items, price verification
+- Checkout: full order flow, validation errors on missing fields
+- Burger menu: logout, navigation, reset app state
+- API: status codes, response time, content type
 
 ---
 
-## Folder structure
+## Project Structure
 
-pages — one file per page of the website, contains all locators and actions
-
-tests/ui — all the UI tests, one file per feature
-
-tests/api — tests that check the website responds correctly at the HTTP level
-
-test-data — all usernames, passwords, product names, and checkout details 
-in one place so they are easy to change
-
-fixtures — sets up a logged in browser automatically before each test that needs it
-
-utils — small helper functions used across multiple tests
-
-playwright.config.js — settings for browsers, timeouts, and reports
-
-CLAUDE.md — the rules this project follows so anyone can pick it up and understand it
+```
+pages/          Page object classes, one per page
+tests/ui/       UI test specs, one file per feature
+tests/api/      API-level HTTP tests
+test-data/      Usernames, passwords, product data, checkout data
+fixtures/       Shared login setup for tests that require authentication
+utils/          Reusable helper and assertion functions
+playwright.config.js
+```
 
 ---
 
-## What you need before you start
+## Requirements
 
-- Node.js version 18 or above
-- npm version 8 or above
+- Node.js 18+
+- npm 8+
 
 ---
 
-## How to install
+## Setup
 
+```bash
 git clone https://github.com/sonalkajrrolkar1995/saucedemo-playwright-framework
-
 cd saucedemo-playwright-framework
-
 npm install
-
 npx playwright install
+```
 
 ---
 
-## How to run the tests
+## Running Tests
 
-Run everything:
+```bash
+# Run all tests
 npx playwright test
 
-Run just the login tests:
+# Run a specific spec file
 npx playwright test tests/ui/login.spec.js
 
-Run just the API tests:
-npx playwright test tests/api/api.spec.js
-
-Run with the browser visible so you can watch:
+# Run with browser visible
 npx playwright test --headed
 
-Run on Chrome only:
+# Chrome only
 npx playwright test --project=chromium
 
-Run on Firefox only:
+# Firefox only
 npx playwright test --project=firefox
 
-Open the test report in your browser:
+# View HTML report after a run
 npx playwright show-report
+```
 
 ---
 
-## How the framework is built
+## Design Decisions
 
-Each page of the website has its own file in the pages folder. 
-That file contains all the locators for that page and all the 
-actions you can do on that page. Tests do not contain any locators. 
-Tests only say what to do and what to check.
+Tests follow the Page Object Model. All locators and actions are in the `pages/` folder. Test files only contain test logic, no selectors.
 
-Test data is stored separately in the test-data folder. 
-If a username or product name changes you only need to update it in one place.
+Test data lives in `test-data/` so credentials, product names, and expected values are defined once and imported where needed.
 
-Every file has comments written in plain English explaining what each 
-part does. Anyone can open a file and understand it without needing 
-to ask someone.
+No hard waits. Playwright's built-in auto-waiting handles all element readiness.
 
-Tests never use hard waits or sleep commands. Playwright waits 
-automatically for elements to be ready before interacting with them.
-
-If a test fails on the first try it runs again automatically once 
-before being marked as failed.
-
-Screenshots and videos are only saved when a test fails so you can 
-see exactly what went wrong.
+Screenshots and videos are captured only on failure.
 
 ---
 
 ## Author
 
 Sonal Kajrolkar
-GitHub: https://github.com/sonalkajrrolkar1995
+GitHub: [sonalkajrrolkar1995](https://github.com/sonalkajrrolkar1995)
