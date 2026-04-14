@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonal Kajrolkar &mdash; QA Engineer &mdash; CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    /* ── CLEAN LIGHT PROFESSIONAL CV ── */
+    :root{
+      --blue:   #0a5eb0;
+      --lblue:  #1a73e8;
+      --dark:   #1a1f2e;
+      --body:   #3d4458;
+      --muted:  #6b7490;
+      --bg:     #ffffff;
+      --sidebar:#f0f4fb;
+      --bdr:    #dce3f0;
+      --tag:    #e4ecf8;
+      --tagtxt: #1a5299;
+      --grn:    #0d7a4e;
+      --gnbg:   #e6f5ef;
+      --gnbdr:  #9fd4be;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#e8edf5;color:var(--body);line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    a{text-decoration:none;color:inherit}
+
+    /* ── PRINT TOOLBAR ── */
+    .toolbar{background:#fff;border-bottom:1px solid var(--bdr);padding:10px 40px;display:flex;justify-content:space-between;align-items:center}
+    .toolbar span{color:var(--muted);font-size:.8rem}
+    .save-btn{background:var(--blue);color:#fff;border:none;padding:8px 22px;border-radius:5px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:.4rem;transition:background .2s}
+    .save-btn:hover{background:var(--lblue)}
+
+    /* ── PAGE ── */
+    .page{max-width:900px;margin:28px auto 48px;background:var(--bg);border:1px solid var(--bdr);border-radius:4px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.1)}
+
+    /* ── HEADER ── */
+    .cv-header{background:var(--blue);padding:36px 42px 30px;position:relative}
+    .cv-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#1a73e8,#00cfff)}
+    .header-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap}
+    .cv-name{font-size:2rem;font-weight:700;color:#fff;line-height:1.1;letter-spacing:-.3px}
+    .cv-name span{color:#7dd3fc}
+    .cv-title{font-size:.92rem;font-weight:500;color:rgba(255,255,255,.82);margin-top:.32rem;letter-spacing:.3px}
+    .cv-visa{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:5px 14px;border-radius:4px;font-size:.74rem;font-weight:600;margin-top:.85rem}
+    .gdot{width:7px;height:7px;background:#4ade80;border-radius:50%;flex-shrink:0}
+    .cv-contacts{display:flex;flex-direction:column;gap:.35rem;align-items:flex-end}
+    .cv-contacts a,.cv-contacts span{display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.82);font-size:.76rem}
+    .cv-contacts a:hover{color:#7dd3fc}
+    .cv-contacts i{color:#7dd3fc;width:13px;text-align:center;font-size:.72rem;flex-shrink:0}
+
+    /* ── BODY ── */
+    .cv-body{display:grid;grid-template-columns:1fr 210px;min-height:600px}
+    .cv-main{padding:30px 36px;border-right:1px solid var(--bdr)}
+    .cv-side{background:var(--sidebar);padding:30px 22px}
+
+    /* ── SECTION TITLES ── */
+    .sec-title{font-size:.68rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:.65rem;padding-bottom:.35rem;border-bottom:2px solid var(--blue);display:flex;align-items:center;gap:.4rem}
+    .cv-section{margin-bottom:22px}
+
+    /* ── SUMMARY ── */
+    .summary-text{color:var(--body);font-size:.83rem;line-height:1.85}
+
+    /* ── EXPERIENCE ── */
+    .exp-block{margin-bottom:18px}
+    .exp-block:last-child{margin-bottom:0}
+    .exp-row{display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;flex-wrap:wrap;margin-bottom:.15rem}
+    .exp-role{font-size:.87rem;font-weight:700;color:var(--dark)}
+    .exp-period{background:var(--tag);color:var(--tagtxt);padding:2px 9px;border-radius:3px;font-size:.69rem;font-weight:600;white-space:nowrap}
+    .exp-company{color:var(--blue);font-size:.77rem;font-weight:600;margin-bottom:.42rem}
+    .exp-list li{color:var(--body);font-size:.79rem;padding:.18rem 0;display:flex;align-items:flex-start;gap:.45rem;line-height:1.55}
+    .exp-list li::before{content:'▸';color:var(--blue);flex-shrink:0;font-size:.7rem;margin-top:2px}
+    .result-strip{margin-top:.5rem;padding:.48rem .75rem;background:var(--gnbg);border-left:3px solid var(--grn);border-radius:0 4px 4px 0}
+    .result-label{font-size:.63rem;font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:1px;margin-bottom:.12rem}
+    .result-strip p{color:#2d5a3d;font-size:.76rem;line-height:1.5}
+    .exp-tags{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.45rem}
+    .etag{background:var(--tag);color:var(--tagtxt);padding:2px 8px;border-radius:3px;font-size:.67rem;font-weight:500}
+
+    /* ── PROJECTS ── */
+    .proj-block{border:1px solid var(--bdr);border-radius:4px;padding:.75rem .9rem;margin-bottom:.75rem;background:#fafbfe}
+    .proj-block:last-child{margin-bottom:0}
+    .proj-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.2rem;gap:.4rem;flex-wrap:wrap}
+    .proj-name{font-size:.81rem;font-weight:700;color:var(--dark)}
+    .proj-gh{display:inline-flex;align-items:center;gap:.25rem;color:var(--blue);font-size:.7rem;font-weight:500}
+    .proj-gh:hover{color:var(--lblue)}
+    .proj-desc{color:var(--body);font-size:.77rem;line-height:1.55}
+    .proj-tech{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.38rem}
+    .ptag{background:var(--tag);color:var(--tagtxt);padding:1px 7px;border-radius:3px;font-size:.65rem;font-weight:500}
+
+    /* ── EDUCATION ── */
+    .edu-block{margin-bottom:12px}
+    .edu-block:last-child{margin-bottom:0}
+    .edu-deg{font-size:.82rem;font-weight:700;color:var(--dark)}
+    .edu-inst{color:var(--blue);font-size:.75rem;font-weight:500}
+    .edu-yr{color:var(--muted);font-size:.72rem}
+    .edu-badge{display:inline-block;margin-top:.22rem;background:var(--gnbg);border:1px solid var(--gnbdr);color:var(--grn);padding:1px 8px;border-radius:3px;font-size:.64rem;font-weight:600}
+
+    /* ── SIDEBAR SKILLS ── */
+    .skill-group{margin-bottom:15px}
+    .skill-cat{font-size:.71rem;font-weight:700;color:var(--dark);margin-bottom:.38rem}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:.26rem}
+    .stag{background:#fff;border:1px solid var(--bdr);color:var(--body);padding:2px 8px;border-radius:3px;font-size:.66rem}
+    .stag.hot{background:var(--tag);border-color:#b8cef0;color:var(--tagtxt);font-weight:600}
+
+    /* ── CERTIFICATIONS ── */
+    .cert-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--bdr)}
+    .cert-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .cert-name{font-size:.74rem;font-weight:700;color:var(--dark);line-height:1.38;margin-bottom:.14rem}
+    .cert-issuer{color:var(--blue);font-size:.68rem;font-weight:500}
+    .cert-link{display:inline-flex;align-items:center;gap:.24rem;color:var(--muted);font-size:.65rem;margin-top:.2rem}
+    .cert-link:hover{color:var(--blue)}
+
+    /* ── INDUSTRY ── */
+    .domain-tags{display:flex;flex-direction:column;gap:.28rem}
+    .dtag{background:#fff;border:1px solid var(--bdr);color:var(--body);padding:3px 9px;border-radius:3px;font-size:.7rem}
+
+    /* ── FOOTER ── */
+    .cv-footer{border-top:1px solid var(--bdr);padding:12px 42px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;background:#fafbfe}
+    .cv-footer span{color:var(--muted);font-size:.7rem}
+    .cv-footer a{color:var(--blue);font-size:.7rem}
+    .cv-footer a:hover{color:var(--lblue)}
+
+    /* ── PRINT ── */
+    @media print{
+      .toolbar{display:none!important}
+      body{background:#fff!important}
+      .page{margin:0!important;border:none!important;border-radius:0!important;box-shadow:none!important;max-width:100%!important}
+      .cv-side{background:#f0f4fb!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .cv-header{background:#0a5eb0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .result-strip{background:var(--gnbg)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .etag,.stag.hot,.ptag{background:var(--tag)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      @page{margin:.55cm;size:A4}
+    }
+
+    @media(max-width:660px){
+      .cv-body{grid-template-columns:1fr}
+      .cv-main{border-right:none;border-bottom:1px solid var(--bdr)}
+      .cv-header,.cv-footer{padding-left:20px;padding-right:20px}
+      .cv-main{padding:24px 20px}
+      .cv-side{padding:24px 20px}
+      .toolbar{padding-left:20px;padding-right:20px}
+      .header-inner{flex-direction:column}
+      .cv-contacts{align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span>Sonal Kajrolkar &mdash; QA Engineer &mdash; Berlin, Germany</span>
+  <button class="save-btn" onclick="window.print()"><i class="fas fa-download"></i> Save as PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div class="header-inner">
+      <div>
+        <div class="cv-name">Sonal <span>Kajrolkar</span></div>
+        <div class="cv-title">QA Engineer &nbsp;&middot;&nbsp; Test Automation &nbsp;&middot;&nbsp; Berlin, Germany</div>
+        <div class="cv-visa"><div class="gdot"></div>Family Reunion Visa &nbsp;&middot;&nbsp; Full Work Authorisation &nbsp;&middot;&nbsp; No Sponsorship Required</div>
+      </div>
+      <div class="cv-contacts">
+        <span><i class="fas fa-map-marker-alt"></i>Berlin, Germany</span>
+        <a href="mailto:sonal.kajrolkar@outlook.com"><i class="fas fa-envelope"></i>sonal.kajrolkar@outlook.com</a>
+        <span><i class="fas fa-phone"></i>+49 17 636340214</span>
+        <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank"><i class="fab fa-linkedin"></i>linkedin.com/in/sonalkajrolkar</a>
+        <a href="https://github.com/sonalkajrrolkar1995" target="_blank"><i class="fab fa-github"></i>github.com/sonalkajrrolkar1995</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="cv-body">
+    <div class="cv-main">
+
+      <!-- PROFILE -->
+      <div class="cv-section">
+        <div class="sec-title"><i class="fas fa-user"></i>Profile</div>
+        <p class="summary-text">QA Engineer with 7 years of experience in manual and automated software testing. Based in Berlin since August 2025. Family Reunion Visa &mdash; full work authorisation, no sponsorship required, immediately available. Practises Shift Left Testing &mdash; entering the development cycle early to prevent defects before they are written in. Built end-to-end automation frameworks with Playwright and Cypress.io. Strong in BDD, API testing with Postman, and Oracle SQL validation. Experienced across E-commerce, Fintech, Automotive, Healthcare, Logistics, Insurance, and Enterprise SaaS. Prevention is always better than cure.</p>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="cv-section">
+        <div class="sec-title"><i class="fas fa-briefcase"></i>Experience</div>
+
+        <div class="exp-block">
+          <div class="exp-row">
+            <div class="exp-role">QA Technical Development &mdash; Playwright &amp; Automation</div>
+            <span class="exp-period">Aug 2025 &ndash; Present</span>
+          </div>
+          <div class="exp-company">Self-Directed Professional Development &nbsp;&middot;&nbsp; Berlin, Germany</div>
+          <ul class="exp-list">
+            <li>Relocated from London to Berlin following marriage. Permanently settled. Family Reunion Visa &mdash; full work authorisation, no sponsorship required.</li>
+            <li>Built Playwright automation framework from scratch &mdash; Page Object Model, covering login, product catalogue, cart, checkout. <a href="https://github.com/sonalkajrrolkar1995/saucedemo-playwright-framework" target="_blank" style="color:var(--blue)">GitHub &rarr;</a></li>
+            <li>Built QA Engineer technical challenge framework demonstrating full automation and test strategy. <a href="https://github.com/sonalkajrrolkar1995/Sonal_Kajrolkar_QA_Engineer_Challenge" target="_blank" style="color:var(--blue)">GitHub &rarr;</a></li>
+            <li>Advanced Cypress.io, TypeScript, and BDD expertise aligned with German enterprise QA standards.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="etag">Playwright</span><span class="etag">Cypress.io</span><span class="etag">JavaScript</span>
+            <span class="etag">TypeScript</span><span class="etag">BDD / Cucumber</span><span class="etag">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-row">
+            <div class="exp-role">QA Engineer</div>
+            <span class="exp-period">Nov 2021 &ndash; Aug 2025</span>
+          </div>
+          <div class="exp-company">Expleo Technology &nbsp;&middot;&nbsp; London, United Kingdom</div>
+          <ul class="exp-list">
+            <li>Managed and prioritised bug reports for enterprise procurement and purchasing interface systems.</li>
+            <li>Implemented Cypress.io and Playwright automated test suites for frontend JavaScript applications &mdash; reduced regression cycle time by 30%.</li>
+            <li>Improved developer first-pass fix rates by 25% through Browser DevTools root-cause analysis and precise bug reports.</li>
+            <li>Validated backend data integrity for purchasing modules via Oracle SQL queries.</li>
+            <li>Tested and confirmed JSON API responses using Postman across multiple service endpoints.</li>
+            <li>Applied exploratory and destructive manual testing to identify edge cases beyond automation coverage.</li>
+            <li>Coordinated cross-functional testing in Agile Scrum and Kanban sprints.</li>
+          </ul>
+          <div class="result-strip">
+            <div class="result-label">Key Results</div>
+            <p>25% improvement in developer first-pass fix rates &nbsp;&middot;&nbsp; 30% reduction in regression cycle time via Cypress AND Playwright automation suites</p>
+          </div>
+          <div class="exp-tags">
+            <span class="etag">Cypress.io</span><span class="etag">Playwright</span><span class="etag">JavaScript</span>
+            <span class="etag">Postman</span><span class="etag">Oracle SQL</span><span class="etag">Chrome DevTools</span><span class="etag">Agile / Scrum</span>
+          </div>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-row">
+            <div class="exp-role">Software QA Engineer</div>
+            <span class="exp-period">Dec 2017 &ndash; Oct 2021</span>
+          </div>
+          <div class="exp-company">Datamatics Infotech &nbsp;&middot;&nbsp; London, United Kingdom</div>
+          <ul class="exp-list">
+            <li>Achieved comprehensive test coverage for critical healthcare management platform features &mdash; substantially reducing manual testing efforts and improving product quality across manual and automation testing.</li>
+            <li>Applied Shift Left Testing &mdash; joined the development cycle early to prevent defects before they were written in. Prevention is always better than cure.</li>
+            <li>Spearheaded cross-functional collaboration between QA, development, and product teams &mdash; 25% reduction in bug leakage to production and 40% decrease in critical post-release issues.</li>
+            <li>Implemented best practices in test design and execution &mdash; 35% increase in defect detection during early development stages.</li>
+            <li>Executed system testing and UAT for business-critical platforms &mdash; 20% reduction in production incidents.</li>
+            <li>Applied exploratory and destructive manual testing, consistently catching edge cases missed by scripted tests.</li>
+            <li>Validated Oracle SQL data integrity and JSON API responses across fintech, banking, insurance, and healthcare client projects.</li>
+          </ul>
+          <div class="result-strip">
+            <div class="result-label">Key Results</div>
+            <p>35% increase in defect detection via Shift Left Testing &nbsp;&middot;&nbsp; 25% reduction in bug leakage &nbsp;&middot;&nbsp; 40% decrease in critical post-release issues &nbsp;&middot;&nbsp; 20% reduction in production incidents</p>
+          </div>
+          <div class="exp-tags">
+            <span class="etag">Manual Testing</span><span class="etag">Exploratory Testing</span><span class="etag">Shift Left Testing</span>
+            <span class="etag">Oracle SQL</span><span class="etag">Postman</span><span class="etag">UAT</span><span class="etag">Agile</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="cv-section">
+        <div class="sec-title"><i class="fab fa-github"></i>GitHub Projects</div>
+        <div class="proj-block">
+          <div class="proj-row">
+            <div class="proj-name">Playwright Automation Framework</div>
+            <a href="https://github.com/sonalkajrrolkar1995/saucedemo-playwright-framework" target="_blank" class="proj-gh"><i class="fab fa-github"></i>saucedemo-playwright-framework</a>
+          </div>
+          <p class="proj-desc">End-to-end Playwright framework built from a blank project. Page Object Model. Full user journey: login, product catalogue, cart, checkout. Cross-browser. GitHub Actions CI/CD.</p>
+          <div class="proj-tech">
+            <span class="ptag">Playwright</span><span class="ptag">JavaScript</span><span class="ptag">Page Object Model</span><span class="ptag">GitHub Actions</span><span class="ptag">Cross-browser</span>
+          </div>
+        </div>
+        <div class="proj-block">
+          <div class="proj-row">
+            <div class="proj-name">QA Engineer Technical Challenge</div>
+            <a href="https://github.com/sonalkajrrolkar1995/Sonal_Kajrolkar_QA_Engineer_Challenge" target="_blank" class="proj-gh"><i class="fab fa-github"></i>Sonal_Kajrolkar_QA_Engineer_Challenge</a>
+          </div>
+          <p class="proj-desc">Complete QA challenge: requirements analysis, test strategy, automation, reporting. Playwright. API and UI coverage. BDD with Gherkin scenarios.</p>
+          <div class="proj-tech">
+            <span class="ptag">Playwright</span><span class="ptag">JavaScript</span><span class="ptag">API Testing</span><span class="ptag">BDD</span><span class="ptag">Test Strategy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="cv-section">
+        <div class="sec-title"><i class="fas fa-graduation-cap"></i>Education</div>
+        <div class="edu-block">
+          <div class="edu-deg">Bachelor of Engineering &mdash; Information Technology</div>
+          <div class="edu-inst">University of Mumbai</div>
+          <div class="edu-yr">2014 &ndash; 2017</div>
+          <span class="edu-badge">Anabin H+ &middot; Valid in Germany</span>
+        </div>
+        <div class="edu-block">
+          <div class="edu-deg">Diploma in Information Technology</div>
+          <div class="edu-inst">MSBTE Mumbai</div>
+          <div class="edu-yr">2014</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="cv-side">
+
+      <div class="cv-section">
+        <div class="sec-title"><i class="fas fa-code"></i>Skills</div>
+        <div class="skill-group">
+          <div class="skill-cat">Test Automation</div>
+          <div class="skill-tags">
+            <span class="stag hot">Playwright</span><span class="stag hot">Cypress.io</span>
+            <span class="stag hot">JavaScript</span><span class="stag hot">TypeScript</span>
+            <span class="stag">BDD / Cucumber</span><span class="stag">Gherkin</span>
+            <span class="stag">Page Object Model</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">Manual Testing</div>
+          <div class="skill-tags">
+            <span class="stag hot">Shift Left Testing</span>
+            <span class="stag hot">Exploratory Testing</span>
+            <span class="stag">Functional Testing</span>
+            <span class="stag">Regression Testing</span>
+            <span class="stag">Destructive Testing</span>
+            <span class="stag">UAT</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">API &amp; Data</div>
+          <div class="skill-tags">
+            <span class="stag hot">Postman</span>
+            <span class="stag">REST / JSON</span>
+            <span class="stag hot">Oracle SQL</span>
+            <span class="stag">SQL Data Validation</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">CI/CD &amp; Tools</div>
+          <div class="skill-tags">
+            <span class="stag hot">Jenkins</span><span class="stag hot">GitHub Actions</span>
+            <span class="stag">Git</span><span class="stag">Jira</span>
+            <span class="stag">Chrome DevTools</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-cat">Methodology</div>
+          <div class="skill-tags">
+            <span class="stag hot">Agile / Scrum</span><span class="stag">Kanban</span>
+            <span class="stag">Root Cause Analysis</span><span class="stag">Risk-Based Testing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="sec-title"><i class="fas fa-certificate"></i>Certifications</div>
+        <div class="cert-item">
+          <div class="cert-name">ISTQB Certified Tester Foundation Level 4.0</div>
+          <div class="cert-issuer">ISTQB</div>
+          <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Playwright &mdash; End-to-End Test Automation</div>
+          <div class="cert-issuer">Microsoft / Playwright</div>
+          <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Cypress.io &mdash; Test Automation</div>
+          <div class="cert-issuer">Cypress.io</div>
+          <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">API Validation and Testing &mdash; Postman</div>
+          <div class="cert-issuer">Postman</div>
+          <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">SQL for Testers &mdash; Oracle SQL</div>
+          <div class="cert-issuer">Oracle / Database Testing</div>
+          <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="sec-title"><i class="fas fa-industry"></i>Industry</div>
+        <div class="domain-tags">
+          <span class="dtag">E-commerce &amp; Retail</span>
+          <span class="dtag">Fintech &amp; Banking</span>
+          <span class="dtag">Automotive</span>
+          <span class="dtag">Healthcare &amp; MedTech</span>
+          <span class="dtag">Logistics &amp; Supply Chain</span>
+          <span class="dtag">Insurance</span>
+          <span class="dtag">Enterprise SaaS</span>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="sec-title"><i class="fas fa-location-dot"></i>Location</div>
+        <p style="color:var(--body);font-size:.74rem;line-height:1.75">Berlin, Germany<br>Open to all of Germany<br>Remote &middot; Hybrid &middot; On-site<br>Berlin &middot; Hamburg &middot; Munich<br>Frankfurt &middot; Stuttgart</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cv-footer">
+    <span>Sonal Kajrolkar &nbsp;&middot;&nbsp; QA Engineer &nbsp;&middot;&nbsp; Berlin, Germany</span>
+    <span><a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank">linkedin.com/in/sonalkajrolkar</a> &nbsp;&middot;&nbsp; <a href="https://github.com/sonalkajrrolkar1995" target="_blank">github.com/sonalkajrrolkar1995</a></span>
+  </div>
+
+</div>
+</body>
+</html>
