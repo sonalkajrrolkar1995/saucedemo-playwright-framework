@@ -1,371 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sonal Kajrolkar | QA Engineer | Berlin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    :root{
-      --p:#00a8ff;
-      --pg:0 0 10px rgba(0,168,255,.7),0 0 22px rgba(0,168,255,.4);
-      --a:#00cfff;
-      --bg:#020208;
-      --card:#0c0c14;
-      --sec:#070710;
-      --bdr:#1c1e2e;
-      --txt:#d8dce8;
-      --mut:#7a8499;
-      --wht:#ffffff;
-      --grn:#00e87a;
-      --neon:0 0 6px rgba(0,168,255,.6),0 0 14px rgba(0,168,255,.3);
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
-    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#04040c}::-webkit-scrollbar-thumb{background:var(--p);border-radius:3px}
-    a{text-decoration:none;color:inherit;transition:color .25s}
-    ul{list-style:none}
-    .container{max-width:1180px;margin:0 auto;padding:0 24px}
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sonal Kajrolkar | QA Engineer | Berlin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --p:#00a8ff;
+  --p2:#0080cc;
+  --bg:#09090f;
+  --bg2:#0f0f1a;
+  --bg3:#141425;
+  --card:#12121f;
+  --card2:#1a1a2e;
+  --border:#1e1e3a;
+  --text:#e2e8f0;
+  --muted:#8892a4;
+  --white:#ffffff;
+  --neon:0 0 8px rgba(0,168,255,.6),0 0 20px rgba(0,168,255,.3);
+  --neon-sm:0 0 5px rgba(0,168,255,.5);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--p2);border-radius:3px;}
 
-    /* ── NAV ── */
-    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(2,2,8,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr);transition:box-shadow .3s}
-    #navbar .container{display:flex;justify-content:space-between;align-items:center;height:66px}
-    .logo{font-size:1.4rem;font-weight:700;color:var(--p);text-shadow:var(--neon);letter-spacing:2px}
-    .nav-links{display:flex;gap:1.5rem}
-    .nav-links a{font-size:.81rem;font-weight:500;color:var(--mut);position:relative;padding-bottom:3px}
-    .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--p);box-shadow:var(--pg);transition:width .27s}
-    .nav-links a:hover,.nav-links a.active{color:var(--p)}
-    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
-    .hamburger span{width:22px;height:2px;background:var(--p);display:block;border-radius:2px}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(9,9,15,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-name{font-size:.88rem;font-weight:700;color:var(--white);letter-spacing:.03em;}
+.nav-name span{color:var(--p);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;transition:color .25s;}
+.nav-links a:hover,.nav-links a.active{color:var(--p);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+@media(max-width:768px){
+  .hamburger{display:flex;}
+  .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:16px 5%;gap:0;border-bottom:1px solid var(--border);}
+  .nav-links.open{display:flex;}
+  .nav-links li{border-bottom:1px solid var(--border);}
+  .nav-links a{display:block;padding:12px 0;}
+}
 
-    /* ── SECTIONS ── */
-    section{padding:96px 0}
-    /* ONE consistent heading color = var(--p) */
-    .section-title{
-      text-align:center;margin-bottom:52px;
-      font-size:1.8rem;font-weight:700;
-      color:var(--p);
-      text-shadow:var(--neon);
-      position:relative;padding-bottom:16px
-    }
-    .section-title::after{
-      content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-      width:56px;height:3px;background:var(--p);border-radius:2px;box-shadow:var(--pg)
-    }
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden;}
+#hero::before{content:'';position:absolute;top:-40%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,168,255,.07) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;width:100%;}
+.hero-relocation{display:inline-block;font-size:.8rem;font-weight:700;color:var(--p);background:rgba(0,168,255,.1);border:1px solid rgba(0,168,255,.3);padding:7px 15px;border-radius:4px;margin-bottom:12px;letter-spacing:.03em;}
+.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+.hero-badge-visa{font-size:.74rem;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:4px 12px;border-radius:4px;letter-spacing:.03em;}
+.hero-name{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;line-height:1.1;margin-bottom:10px;color:var(--white);}
+.hero-name .accent{color:var(--p);text-shadow:var(--neon);}
+.hero-role{font-size:clamp(.92rem,1.8vw,1.15rem);color:var(--muted);margin-bottom:22px;line-height:1.5;}
+.hero-role strong{color:var(--text);font-weight:600;}
+.hero-tagline{font-size:.91rem;color:var(--muted);max-width:560px;line-height:1.8;margin-bottom:30px;border-left:2px solid var(--p);padding-left:16px;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;border-radius:6px;font-size:.84rem;font-weight:600;text-decoration:none;transition:all .25s;cursor:pointer;border:none;}
+.btn-primary{background:var(--p);color:#000;}
+.btn-primary:hover{background:#22b8ff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,168,255,.35);}
+.btn-outline{background:transparent;color:var(--p);border:1.5px solid var(--p);}
+.btn-outline:hover{background:rgba(0,168,255,.08);transform:translateY(-2px);}
+.hero-photo{width:220px;height:220px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,168,255,.4);box-shadow:0 0 30px rgba(0,168,255,.2),0 0 60px rgba(0,168,255,.1);flex-shrink:0;}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .hero-photo{width:160px;height:160px;order:-1;margin:0 auto;}
+  .hero-tagline{border-left:none;border-top:2px solid var(--p);padding-left:0;padding-top:12px;text-align:left;}
+  .hero-badges{justify-content:center;}
+}
 
-    /* ── HERO ── */
-    #home{min-height:100vh;display:flex;align-items:center;background:linear-gradient(140deg,#020208 0%,#06060f 55%,#020208 100%);position:relative;overflow:hidden;padding-top:66px}
-    #home::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 75% 50%,rgba(0,168,255,.055) 0%,transparent 68%);pointer-events:none}
-    .hero-grid{display:grid;grid-template-columns:1fr 340px;gap:4rem;align-items:center}
-    .adot{width:8px;height:8px;background:var(--grn);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
-    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,232,122,.4)}50%{box-shadow:0 0 0 7px rgba(0,232,122,0)}}
-    .hero-tag{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(0,168,255,.25);color:var(--p);padding:5px 16px;border-radius:50px;font-size:.77rem;font-weight:500;margin-bottom:1.3rem;background:rgba(0,168,255,.04)}
-    .hero-name{font-size:clamp(2rem,4vw,3.1rem);font-weight:700;color:var(--wht);line-height:1.12;margin-bottom:.45rem}
-    .hero-name span{color:var(--p);text-shadow:var(--neon)}
-    .hero-role{font-size:.98rem;font-weight:600;color:var(--a);margin-bottom:1.25rem;letter-spacing:.4px}
-    .hero-summary{color:var(--mut);font-size:.89rem;line-height:1.95;margin-bottom:1.3rem;max-width:570px}
-    .hero-visa{display:inline-flex;align-items:center;gap:.55rem;background:rgba(0,232,122,.05);border:1px solid rgba(0,232,122,.2);color:var(--grn);padding:6px 16px;border-radius:50px;font-size:.77rem;font-weight:600;margin-bottom:1.7rem}
-    .hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:2.2rem}
-    .btn-p{background:var(--p);color:#000;padding:11px 26px;border-radius:6px;font-weight:700;font-size:.85rem;display:inline-flex;align-items:center;gap:.5rem;box-shadow:var(--pg);transition:all .27s;border:none;cursor:pointer;font-family:'Poppins',sans-serif}
-    .btn-p:hover{background:var(--a);transform:translateY(-2px)}
-    .btn-o{background:transparent;color:var(--p);padding:11px 26px;border-radius:6px;font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--p);transition:all .27s}
-    .btn-o:hover{background:rgba(0,168,255,.09);transform:translateY(-2px)}
-    .btn-g{background:transparent;color:var(--mut);padding:11px 26px;border-radius:6px;font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--bdr);transition:all .27s}
-    .btn-g:hover{border-color:var(--p);color:var(--p)}
-    .hero-stats{display:flex;gap:2.6rem;flex-wrap:wrap}
-    .stat-n{font-size:1.6rem;font-weight:700;color:var(--p);text-shadow:var(--neon);line-height:1}
-    .stat-l{font-size:.69rem;color:var(--mut);font-weight:500;margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
-    .photo-wrap{position:relative;width:310px;height:310px;margin:0 auto}
-    .photo-wrap::before{content:'';position:absolute;inset:-3px;border-radius:18px;background:linear-gradient(140deg,var(--p) 0%,transparent 50%,var(--a) 100%);z-index:0}
-    .photo-wrap img{width:100%;height:100%;border-radius:16px;object-fit:cover;object-position:top center;position:relative;z-index:1;display:block}
-    .photo-badge{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:var(--p);color:#000;padding:5px 18px;border-radius:50px;font-size:.73rem;font-weight:700;z-index:2;white-space:nowrap;box-shadow:var(--pg)}
+/* SECTION BASE */
+section{padding:86px 5%;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-title{font-size:clamp(1.45rem,3vw,2rem);font-weight:700;color:var(--p);text-shadow:var(--neon-sm);margin-bottom:7px;display:flex;align-items:center;gap:14px;}
+.section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,168,255,.3),transparent);}
+.section-sub{color:var(--muted);font-size:.84rem;margin-bottom:44px;}
 
-    /* ── ABOUT ── */
-    #about{background:var(--sec)}
-    .about-grid{display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:start}
-    .about-card{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden}
-    .about-card img{width:100%;aspect-ratio:1;object-fit:cover;object-position:top center;display:block}
-    .about-info{padding:1.3rem}
-    .aname{font-size:.96rem;font-weight:700;color:var(--p);margin-bottom:.15rem}
-    .arole{color:var(--mut);font-size:.78rem;font-weight:500;margin-bottom:.85rem}
-    .irow{display:flex;align-items:flex-start;gap:.55rem;padding:.3rem 0;border-bottom:1px solid var(--bdr);font-size:.77rem}
-    .irow:last-child{border-bottom:none}
-    .irow i{color:var(--p);min-width:13px;margin-top:3px;font-size:.73rem;flex-shrink:0}
-    .irow span,.irow a{color:var(--mut);line-height:1.45;word-break:break-all}
-    .irow a:hover{color:var(--p)}
-    .avail-strip{background:rgba(0,232,122,.05);border:1px solid rgba(0,232,122,.18);border-radius:7px;padding:.5rem .9rem;margin-top:.85rem;display:flex;align-items:center;gap:.5rem;font-size:.74rem;color:var(--grn);font-weight:600}
-    .socials{display:flex;gap:.55rem;margin-top:.85rem}
-    .sico{width:33px;height:33px;background:var(--sec);border:1px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:.8rem;transition:all .25s}
-    .sico:hover{background:var(--p);border-color:var(--p);color:#000;box-shadow:var(--pg)}
-    .about-text h3{font-size:1.2rem;font-weight:700;color:var(--p);margin-bottom:.8rem}
-    .about-text p{color:var(--mut);font-size:.87rem;line-height:1.9;margin-bottom:.85rem}
-    .dlist li{color:var(--mut);font-size:.85rem;padding:.28rem 0;display:flex;align-items:flex-start;gap:.55rem;line-height:1.55}
-    .dlist li::before{content:'▸';color:var(--p);flex-shrink:0}
-    .domains-box{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:1rem;margin-top:1rem}
-    .domains-box h4{font-size:.7rem;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.65rem}
-    .dtags{display:flex;flex-wrap:wrap;gap:.38rem}
-    .dtag{background:rgba(0,168,255,.06);border:1px solid rgba(0,168,255,.15);color:var(--mut);padding:3px 11px;border-radius:50px;font-size:.73rem}
-    .dtag:hover{color:var(--p);border-color:rgba(0,168,255,.3)}
-    .ger-box{background:rgba(0,168,255,.04);border:1px solid rgba(0,168,255,.14);border-radius:10px;padding:.85rem 1rem;margin-top:1rem;display:flex;align-items:flex-start;gap:.65rem;font-size:.81rem;color:var(--mut);line-height:1.5}
-    .ger-box i{color:var(--p);margin-top:2px;flex-shrink:0}
+/* ABOUT */
+#about{background:var(--bg2);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;}
+.about-text p{color:var(--text);line-height:1.8;margin-bottom:14px;font-size:.92rem;}
+.about-text p:last-child{margin-bottom:0;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;text-align:center;transition:border-color .25s;}
+.stat-card:hover{border-color:rgba(0,168,255,.4);}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--p);text-shadow:var(--neon-sm);line-height:1;}
+.stat-label{font-size:.7rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.05em;}
+.industry-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+.i-tag{font-size:.74rem;padding:4px 11px;border-radius:4px;background:rgba(0,168,255,.05);border:1px solid rgba(0,168,255,.15);color:var(--text);}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;}}
 
-    /* ── SKILLS ── */
-    #skills{background:var(--bg)}
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.35rem}
-    .skill-card{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1.5rem;transition:all .27s;position:relative;overflow:hidden}
-    .skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p),var(--a));opacity:0;transition:opacity .27s}
-    .skill-card:hover{border-color:rgba(0,168,255,.3);box-shadow:0 0 22px rgba(0,168,255,.08);transform:translateY(-3px)}
-    .skill-card:hover::before{opacity:1}
-    .sk-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
-    .sk-ico{width:38px;height:38px;background:rgba(0,168,255,.09);border:1px solid rgba(0,168,255,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--p);font-size:.9rem;flex-shrink:0}
-    .sk-cat{font-size:.88rem;font-weight:700;color:var(--p)}
-    .sk-tags{display:flex;flex-wrap:wrap;gap:.35rem}
-    .sk{background:rgba(255,255,255,.025);border:1px solid var(--bdr);color:var(--mut);padding:3px 11px;border-radius:4px;font-size:.73rem;font-weight:500;transition:all .2s}
-    .sk:hover{background:rgba(0,168,255,.09);color:var(--p);border-color:rgba(0,168,255,.28)}
-    .sk.hot{background:rgba(0,168,255,.09);border-color:rgba(0,168,255,.26);color:var(--p)}
+/* SKILLS */
+#skills{background:var(--bg);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;transition:all .3s;}
+.skill-card:hover{border-color:rgba(0,168,255,.35);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4);}
+.sk-title{font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--p);margin-bottom:13px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.pills{display:flex;flex-wrap:wrap;gap:6px;}
+.pill{font-size:.73rem;padding:3px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;color:var(--text);transition:all .2s;}
+.pill:hover{border-color:rgba(0,168,255,.4);color:var(--p);}
 
-    /* ── EXPERIENCE ── */
-    #experience{background:var(--sec)}
-    .timeline{position:relative;max-width:860px;margin:0 auto}
-    .timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--p),rgba(0,168,255,.08))}
-    .exp-item{display:flex;gap:2rem;margin-bottom:2.6rem}
-    .exp-item:last-child{margin-bottom:0}
-    .exp-dot{width:48px;height:48px;flex-shrink:0;background:var(--p);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#000;position:relative;z-index:1;box-shadow:var(--pg);margin-top:2px}
-    .exp-card{flex:1;background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1.6rem;transition:all .27s;min-width:0}
-    .exp-card:hover{border-color:rgba(0,168,255,.28);box-shadow:0 0 24px rgba(0,168,255,.07)}
-    .exp-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.4rem}
-    .exp-role{font-size:.96rem;font-weight:700;color:var(--wht)}
-    .exp-co{color:var(--p);font-size:.81rem;font-weight:600;margin-bottom:.18rem}
-    .exp-period{background:rgba(0,168,255,.09);border:1px solid rgba(0,168,255,.2);color:var(--p);padding:2px 10px;border-radius:50px;font-size:.71rem;font-weight:600;white-space:nowrap}
-    .cbadge{background:rgba(0,232,122,.09);border:1px solid rgba(0,232,122,.26);color:var(--grn);padding:2px 9px;border-radius:50px;font-size:.67rem;font-weight:700}
-    .exp-duties{margin-top:.7rem}
-    .exp-duties li{color:var(--mut);font-size:.83rem;padding:.24rem 0;display:flex;align-items:flex-start;gap:.5rem;line-height:1.62}
-    .exp-duties li::before{content:'▸';color:var(--p);flex-shrink:0;font-size:.74rem;margin-top:3px}
-    .exp-results{margin-top:.85rem;padding:.7rem .95rem;background:rgba(0,232,122,.04);border-left:3px solid var(--grn);border-radius:0 8px 8px 0}
-    .exp-results-title{font-size:.68rem;font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:.3rem}
-    .exp-tech{margin-top:.85rem;display:flex;flex-wrap:wrap;gap:.35rem}
-    .ttag{background:rgba(255,255,255,.025);border:1px solid var(--bdr);color:var(--mut);padding:2px 9px;border-radius:4px;font-size:.7rem}
+/* EXPERIENCE */
+#experience{background:var(--bg2);}
+.timeline{position:relative;padding-left:24px;}
+.timeline::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--p),rgba(0,168,255,.04));}
+.exp-item{position:relative;margin-bottom:38px;}
+.exp-item:last-child{margin-bottom:0;}
+.exp-dot{position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--p);box-shadow:var(--neon-sm);border:2px solid var(--bg2);}
+.exp-role{font-size:1.03rem;font-weight:700;color:var(--white);}
+.exp-company{font-size:.85rem;color:var(--p);font-weight:600;margin-top:1px;}
+.exp-meta{font-size:.76rem;color:var(--muted);margin-top:2px;}
+.exp-body{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-top:10px;}
+.exp-body ul{list-style:none;padding:0;}
+.exp-body li{font-size:.84rem;color:var(--text);padding:4px 0 4px 15px;position:relative;line-height:1.65;}
+.exp-body li::before{content:'▸';position:absolute;left:0;color:var(--p);}
+.exp-result{display:block;margin-top:11px;font-size:.77rem;background:rgba(0,168,255,.07);border:1px solid rgba(0,168,255,.2);color:var(--p);padding:6px 12px;border-radius:4px;line-height:1.6;font-weight:500;}
 
-    /* ── PROJECTS ── */
-    #projects{background:var(--bg)}
-    .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
-    .proj-card{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;transition:all .27s;position:relative}
-    .proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p),var(--a));box-shadow:var(--pg)}
-    .proj-card:hover{border-color:rgba(0,168,255,.28);box-shadow:0 0 28px rgba(0,168,255,.1);transform:translateY(-4px)}
-    .proj-hdr{background:rgba(0,168,255,.03);padding:1.35rem 1.35rem .85rem;border-bottom:1px solid var(--bdr)}
-    .proj-ico-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
-    .proj-ico{width:46px;height:46px;background:rgba(0,168,255,.09);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--p)}
-    .proj-links{display:flex;gap:.45rem}
-    .proj-lnk{width:33px;height:33px;background:var(--sec);border:1px solid var(--bdr);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:.82rem;transition:all .25s}
-    .proj-lnk:hover{background:var(--p);border-color:var(--p);color:#000;box-shadow:var(--pg)}
-    .proj-title{font-size:.92rem;font-weight:700;color:var(--wht);margin-bottom:.2rem}
-    .proj-sub{color:var(--p);font-size:.76rem;font-weight:500;font-family:monospace}
-    .proj-body{padding:1.1rem 1.35rem 1.4rem}
-    .proj-desc{color:var(--mut);font-size:.82rem;line-height:1.72;margin-bottom:.85rem}
-    /* project feature list — plain arrow bullet, no checkmark */
-    .proj-feats li{color:var(--mut);font-size:.79rem;padding:.2rem 0;display:flex;align-items:flex-start;gap:.48rem;line-height:1.55}
-    .proj-feats li::before{content:'▸';color:var(--p);flex-shrink:0;font-size:.73rem;margin-top:1px}
-    .proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.85rem}
-    .ptag{background:rgba(0,168,255,.07);border:1px solid rgba(0,168,255,.18);color:var(--p);padding:2px 9px;border-radius:4px;font-size:.7rem}
+/* PROJECTS */
+#projects{background:var(--bg);}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px;display:flex;flex-direction:column;transition:all .3s;}
+.proj-card:hover{border-color:rgba(0,168,255,.4);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.5);}
+.proj-type{font-size:.69rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--p);margin-bottom:7px;}
+.proj-title{font-size:.98rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+.proj-desc{font-size:.83rem;color:var(--muted);line-height:1.7;margin-bottom:14px;}
+.proj-feats{list-style:none;padding:0;margin-bottom:15px;}
+.proj-feats li{font-size:.8rem;color:var(--text);padding:3px 0 3px 15px;position:relative;line-height:1.6;}
+.proj-feats li::before{content:'▸';position:absolute;left:0;color:var(--p);}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;}
+.proj-tag{font-size:.7rem;padding:3px 9px;background:rgba(0,168,255,.06);border:1px solid rgba(0,168,255,.14);border-radius:4px;color:var(--muted);}
+.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--p);text-decoration:none;font-weight:600;margin-top:auto;transition:color .2s;}
+.proj-link:hover{color:#22b8ff;}
 
-    /* ── EDUCATION ── */
-    #education{background:var(--sec)}
-    .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1.35rem}
-    .edu-card{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1.7rem;display:flex;gap:1.05rem;align-items:flex-start;transition:all .27s}
-    .edu-card:hover{border-color:rgba(0,168,255,.28);box-shadow:0 0 18px rgba(0,168,255,.07)}
-    .edu-ico{width:46px;height:46px;background:rgba(0,168,255,.09);border:1px solid rgba(0,168,255,.18);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:var(--p);flex-shrink:0}
-    .edu-deg{font-size:.88rem;font-weight:700;color:var(--wht);margin-bottom:.22rem}
-    .edu-sch{color:var(--p);font-size:.77rem;font-weight:500;margin-bottom:.2rem}
-    .edu-yr{color:var(--mut);font-size:.74rem}
-    .edu-note{display:inline-block;margin-top:.45rem;background:rgba(0,232,122,.06);border:1px solid rgba(0,232,122,.17);color:var(--grn);padding:2px 9px;border-radius:50px;font-size:.67rem;font-weight:600}
+/* CERTIFICATIONS */
+#certifications{background:var(--bg2);}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:13px;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px 14px;text-align:center;transition:all .3s;text-decoration:none;display:block;}
+.cert-card:hover{border-color:rgba(0,168,255,.4);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4);}
+.cert-icon{font-size:1.5rem;margin-bottom:7px;}
+.cert-name{font-size:.82rem;font-weight:600;color:var(--white);line-height:1.35;margin-bottom:3px;}
+.cert-org{font-size:.7rem;color:var(--muted);}
 
-    /* ── CERTIFICATIONS ── */
-    #certifications{background:var(--bg)}
-    .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(295px,1fr));gap:1.35rem}
-    .cert-card{background:var(--card);border:1px solid var(--bdr);border-left:3px solid var(--p);border-radius:14px;padding:1.35rem;transition:all .27s;position:relative;overflow:hidden}
-    .cert-card:hover{border-color:rgba(0,168,255,.3);transform:translateY(-3px);box-shadow:0 0 20px rgba(0,168,255,.09)}
-    .cert-top{display:flex;align-items:flex-start;gap:.95rem}
-    .cert-ico{width:40px;height:40px;background:rgba(0,168,255,.09);border:1px solid rgba(0,168,255,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--p);flex-shrink:0}
-    .cert-name{font-size:.85rem;font-weight:700;color:var(--wht);margin-bottom:.18rem;line-height:1.4}
-    .cert-issuer{color:var(--p);font-size:.73rem;font-weight:600}
-    .cert-link{display:inline-flex;align-items:center;gap:.28rem;color:var(--mut);font-size:.71rem;font-weight:500;margin-top:.32rem;transition:color .2s}
-    .cert-link:hover{color:var(--p)}
+/* CONTACT */
+#contact{background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start;}
+.contact-info h3{font-size:1.25rem;font-weight:700;color:var(--white);margin-bottom:11px;}
+.contact-info p{color:var(--muted);font-size:.88rem;line-height:1.8;margin-bottom:20px;}
+.c-links{display:flex;flex-direction:column;gap:11px;}
+.c-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:.86rem;transition:color .2s;}
+.c-link:hover{color:var(--p);}
+.c-icon{width:34px;height:34px;border-radius:7px;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--p);flex-shrink:0;}
+.contact-form{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:26px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:.73rem;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em;}
+.fg input,.fg textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:9px 12px;color:var(--text);font-size:.86rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;resize:vertical;}
+.fg input:focus,.fg textarea:focus{border-color:rgba(0,168,255,.5);}
+.fg textarea{min-height:95px;}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr;}}
 
-    /* ── CONTACT ── */
-    #contact{background:var(--sec)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:3.8rem;align-items:start}
-    .contact-intro h3{font-size:1.2rem;font-weight:700;color:var(--p);margin-bottom:.8rem}
-    .contact-intro p{color:var(--mut);font-size:.87rem;line-height:1.85;margin-bottom:1.7rem}
-    .clist li{display:flex;align-items:center;gap:.95rem;padding:.65rem 0;border-bottom:1px solid var(--bdr)}
-    .clist li:last-child{border-bottom:none}
-    .cico{width:36px;height:36px;background:rgba(0,168,255,.07);border:1px solid rgba(0,168,255,.16);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--p);font-size:.82rem;flex-shrink:0}
-    .clabel{font-size:.69rem;color:var(--mut);font-weight:500;text-transform:uppercase;letter-spacing:.5px;margin-bottom:1px}
-    .cval{font-size:.83rem;color:var(--txt);font-weight:500}
-    .cval a{color:var(--txt)}.cval a:hover{color:var(--p)}
-    .loc-box{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:1rem;margin-top:1.3rem}
-    .loc-box h4{font-size:.7rem;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.7rem;display:flex;align-items:center;gap:.4rem}
-    .ltags{display:flex;flex-wrap:wrap;gap:.38rem}
-    .ltag{background:rgba(0,168,255,.06);border:1px solid rgba(0,168,255,.14);color:var(--mut);padding:3px 11px;border-radius:4px;font-size:.74rem}
-    .contact-form{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:2.2rem}
-    .ftitle{font-size:.98rem;font-weight:700;color:var(--p);margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem}
-    .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .fg{margin-bottom:1rem}
-    .fg label{display:block;font-size:.7rem;font-weight:600;color:var(--mut);margin-bottom:.42rem;text-transform:uppercase;letter-spacing:.5px}
-    .fg input,.fg textarea{width:100%;background:rgba(255,255,255,.02);border:1px solid var(--bdr);color:var(--txt);padding:9px 13px;border-radius:7px;font-family:'Poppins',sans-serif;font-size:.83rem;transition:border-color .22s;outline:none;resize:vertical}
-    .fg input:focus,.fg textarea:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(0,168,255,.07)}
-    .fg textarea{min-height:105px}
-    .fsub{width:100%;background:var(--p);color:#000;border:none;padding:11px;border-radius:7px;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;font-family:'Poppins',sans-serif;box-shadow:var(--pg);transition:all .27s}
-    .fsub:hover{background:var(--a);transform:translateY(-2px)}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:22px 5%;text-align:center;}
+footer p{font-size:.78rem;color:var(--muted);}
+footer span{color:var(--p);}
 
-    /* ── FOOTER ── */
-    footer{background:#020208;border-top:1px solid var(--bdr);padding:2rem 0;text-align:center}
-    .flogo{font-size:1.2rem;font-weight:700;color:var(--p);text-shadow:var(--neon);margin-bottom:.55rem}
-    .fnav{display:flex;justify-content:center;gap:1.6rem;flex-wrap:wrap;margin-bottom:.8rem}
-    .fnav a{color:var(--mut);font-size:.77rem}.fnav a:hover{color:var(--p)}
-    .fcopy{color:var(--mut);font-size:.74rem}
-    .fcopy a{color:var(--p)}
-
-    /* ── ANIMATION ── */
-    .reveal{opacity:0;transform:translateY(22px);transition:opacity .54s ease,transform .54s ease}
-    .reveal.vis{opacity:1;transform:translateY(0)}
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:960px){
-      .hero-grid{grid-template-columns:1fr}
-      .photo-wrap{width:200px;height:200px;margin:0 auto 2rem}
-      .about-grid{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-      .frow{grid-template-columns:1fr}
-    }
-    @media(max-width:768px){
-      .nav-links{display:none;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:rgba(2,2,8,.97);padding:1.2rem 24px;border-bottom:1px solid var(--bdr);gap:.8rem}
-      .nav-links.open{display:flex}
-      .hamburger{display:flex}
-      section{padding:72px 0}
-      .hero-btns{flex-direction:column;align-items:flex-start}
-      .proj-grid{grid-template-columns:1fr}
-    }
-  </style>
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+</style>
 </head>
 <body>
 
-<nav id="navbar">
-  <div class="container">
-    <div class="logo">SK</div>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-name"><span>Sonal</span> Kajrolkar</div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section id="home">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-tag"><div class="adot"></div>Available Immediately &nbsp;&middot;&nbsp; Berlin, Germany</div>
-        <h1 class="hero-name">Sonal <span>Kajrolkar</span></h1>
-        <div class="hero-role">QA Engineer &nbsp;|&nbsp; Test Automation &nbsp;|&nbsp; 7+ Years</div>
-        <p class="hero-summary">
-          7 years in software testing. Manual and automated. I find what breaks, reproduce it precisely,
-          report it clearly, and make sure it stays fixed. Shift Left testing &mdash; defects prevented
-          through early involvement, not just caught after development.<br><br>
-          Cypress.io &middot; Playwright &middot; JavaScript &middot; TypeScript &middot; BDD &middot;
-          Oracle SQL &middot; Postman &middot; Jenkins &middot; GitHub Actions.
-        </p>
-        <div class="hero-visa">
-          <i class="fas fa-shield-alt"></i>
-          Family Reunion Visa &nbsp;&middot;&nbsp; Full Work Authorisation &nbsp;&middot;&nbsp; No Sponsorship Required
-        </div>
-        <div class="hero-btns">
-          <a href="#contact" class="btn-p"><i class="fas fa-paper-plane"></i> Contact Me</a>
-          <a href="sonal-cv.html" target="_blank" class="btn-o"><i class="fas fa-file-alt"></i> View CV</a>
-          <a href="https://github.com/sonalkajrrolkar1995" target="_blank" class="btn-g"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><div class="stat-n">7+</div><div class="stat-l">Years in QA</div></div>
-          <div class="stat"><div class="stat-n">2</div><div class="stat-l">GitHub Projects</div></div>
-          <div class="stat"><div class="stat-n">ISTQB</div><div class="stat-l">Certified 4.0</div></div>
-          <div class="stat"><div class="stat-n">5</div><div class="stat-l">Certifications</div></div>
-        </div>
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <!-- Relocation reason - stated once, prominently -->
+      <div class="hero-relocation">
+        <strong>Relocated to Berlin to be with my husband - Marriage - 21 August 2025</strong>
       </div>
-      <div style="display:flex;justify-content:center">
-        <div class="photo-wrap">
-          <img src="sonal-photo.jpg" alt="Sonal Kajrolkar QA Engineer Berlin"/>
-          <div class="photo-badge">Berlin &middot; Open to Work</div>
-        </div>
+      <div class="hero-badges">
+        <span class="hero-badge-visa">Berlin, Germany &nbsp;|&nbsp; Family Reunion Visa &nbsp;|&nbsp; Full Work Authorisation &nbsp;|&nbsp; No Sponsorship Required</span>
+      </div>
+      <h1 class="hero-name"><span class="accent">Sonal</span> Kajrolkar</h1>
+      <p class="hero-role">
+        <strong>QA Engineer</strong> | Manual &amp; Automation Testing | Exploratory Testing | 7+ Years
+      </p>
+      <p class="hero-tagline">
+        QA Engineer with 7+ years of structured software testing experience across seven industry verticals. Strong foundation in manual testing - functional, regression, integration, exploratory, and end-to-end. Automation applied selectively to eliminate repetitive regression and protect high-risk areas. Specialist in GDPR compliance, WCAG accessibility, mobile (iOS/Android), AI Agentic Testing, and full QA process ownership.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Contact Me</a>
+        <a href="sonal-cv.html" target="_blank" class="btn btn-outline">View CV</a>
+        <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/sonalkajrrolkar1995" target="_blank" class="btn btn-outline">GitHub</a>
       </div>
     </div>
+    <img src="sonal-photo.jpg" alt="Sonal Kajrolkar" class="hero-photo"/>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="container">
-    <h2 class="section-title reveal">About Me</h2>
+  <div class="section-inner">
+    <h2 class="section-title">About</h2>
+    <p class="section-sub">QA Engineer - manual-first - process-driven - results-proven across 7 industries</p>
     <div class="about-grid reveal">
-      <div>
-        <div class="about-card">
-          <img src="sonal-photo.jpg" alt="Sonal Kajrolkar"/>
-          <div class="about-info">
-            <div class="aname">Sonal Kajrolkar</div>
-            <div class="arole">QA Engineer &nbsp;&middot;&nbsp; Berlin</div>
-            <div class="irow"><i class="fas fa-map-marker-alt"></i><span>Berlin, Germany</span></div>
-            <div class="irow"><i class="fas fa-envelope"></i><span><a href="mailto:sonal.kajrolkar@outlook.com">sonal.kajrolkar@outlook.com</a></span></div>
-            <div class="irow"><i class="fas fa-phone"></i><span>+49 17 636340214</span></div>
-            <div class="irow"><i class="fas fa-id-card"></i><span>Family Reunion Visa &middot; Full Work Rights</span></div>
-            <div class="irow"><i class="fab fa-linkedin"></i><span><a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank">linkedin.com/in/sonalkajrolkar</a></span></div>
-            <div class="irow"><i class="fab fa-github"></i><span><a href="https://github.com/sonalkajrrolkar1995" target="_blank">github.com/sonalkajrrolkar1995</a></span></div>
-            <div class="avail-strip"><div class="adot"></div>Available Immediately &middot; No Sponsorship</div>
-            <div class="socials">
-              <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="sico"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://github.com/sonalkajrrolkar1995" target="_blank" class="sico"><i class="fab fa-github"></i></a>
-              <a href="mailto:sonal.kajrolkar@outlook.com" class="sico"><i class="fas fa-envelope"></i></a>
-            </div>
-          </div>
+      <div class="about-text">
+        <p>
+          My QA practice is built on a structured manual testing foundation: requirement traceability, risk-based prioritisation, and exploratory techniques applied systematically before any automation is considered. This discipline ensures coverage is deliberate, not accidental.
+        </p>
+        <p>
+          I introduce automation purposefully - through hybrid test frameworks combining Playwright and Cypress - targeting repetitive regression cycles and high-risk product areas. Frameworks follow OOP principles: Page Object Model architecture with class-based structures, encapsulation, and inheritance for long-term maintainability. BDD/Cucumber keeps specifications readable across business and engineering teams.
+        </p>
+        <p>
+          Specialist disciplines: GDPR compliance testing, WCAG 2.1 accessibility validation, mobile (iOS/Android) functional testing, and AI Agentic Testing using Claude AI. I own the QA process from requirement review through release sign-off - including RTM maintenance, defect triaging, severity classification, and weekly stakeholder reporting.
+        </p>
+        <div class="industry-tags">
+          <span class="i-tag">E-commerce &amp; Retail</span>
+          <span class="i-tag">Fintech &amp; Banking</span>
+          <span class="i-tag">Automotive</span>
+          <span class="i-tag">Healthcare &amp; MedTech</span>
+          <span class="i-tag">Logistics &amp; Supply Chain</span>
+          <span class="i-tag">Insurance</span>
+          <span class="i-tag">Enterprise SaaS</span>
         </div>
       </div>
-      <div class="about-text">
-        <h3>7 Years in Software Testing. Now in Berlin.</h3>
-        <p>I test software &mdash; manually and with automation. I find what breaks, I reproduce it precisely, I report it clearly, and I make sure it stays fixed. Prevention is always better than cure: I practise Shift Left testing, joining the development cycle early to prevent defects before they are written in.</p>
-        <p>Started at Datamatics Infotech in London covering fintech, banking, insurance, and healthcare. Then four years as QA Engineer at Expleo Technology on enterprise procurement and purchasing platforms. Relocated to Berlin in August 2025 following marriage. Permanently settled. Immediately available.</p>
-        <p>I work well with developers, product teams, and business stakeholders. I raise bugs early. I automate what saves time and test manually what automation misses. I write clear bug reports. I close the loop.</p>
-        <ul class="dlist">
-          <li>End-to-end test automation &mdash; Playwright and Cypress.io</li>
-          <li>Manual testing &mdash; exploratory and destructive &mdash; finding what automation misses</li>
-          <li>API testing &mdash; Postman, REST, JSON validation</li>
-          <li>Database validation &mdash; Oracle SQL</li>
-          <li>BDD framework automation &mdash; Cucumber and Gherkin</li>
-          <li>Shift Left Testing &mdash; early defect prevention across the full development cycle</li>
-          <li>CI/CD test execution &mdash; Jenkins and GitHub Actions</li>
-          <li>Full bug lifecycle &mdash; from first ticket to production sign-off</li>
-        </ul>
-        <div class="domains-box">
-          <h4>Industry Focus</h4>
-          <div class="dtags">
-            <span class="dtag">E-commerce &amp; Retail</span>
-            <span class="dtag">Fintech &amp; Banking</span>
-            <span class="dtag">Automotive</span>
-            <span class="dtag">Healthcare &amp; MedTech</span>
-            <span class="dtag">Logistics &amp; Supply Chain</span>
-            <span class="dtag">Insurance</span>
-            <span class="dtag">Enterprise SaaS</span>
+      <div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num">7+</div>
+            <div class="stat-label">Years QA Experience</div>
           </div>
-        </div>
-        <div class="ger-box">
-          <i class="fas fa-location-dot"></i>
-          <span>Open to all of Germany &mdash; Berlin &middot; Hamburg &middot; Munich &middot; Frankfurt &middot; Stuttgart &middot; Remote &middot; Hybrid &middot; On-site</span>
+          <div class="stat-card">
+            <div class="stat-num">35%</div>
+            <div class="stat-label">Defect Detection Increase</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">30%</div>
+            <div class="stat-label">Regression Cycle Reduction</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">40%</div>
+            <div class="stat-label">Fewer Post-Release Issues</div>
+          </div>
         </div>
       </div>
     </div>
@@ -374,164 +272,145 @@
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="container">
-    <h2 class="section-title reveal">Technical Skills</h2>
+  <div class="section-inner">
+    <h2 class="section-title">Technical Skills</h2>
+    <p class="section-sub">Applied methodically across product lifecycles - not collected for CV padding</p>
     <div class="skills-grid reveal">
+
       <div class="skill-card">
-        <div class="sk-head"><div class="sk-ico"><i class="fas fa-robot"></i></div><div class="sk-cat">Test Automation</div></div>
-        <div class="sk-tags">
-          <span class="sk hot">Playwright</span><span class="sk hot">Cypress.io</span>
-          <span class="sk hot">JavaScript</span><span class="sk hot">TypeScript</span>
-          <span class="sk hot">BDD / Cucumber</span><span class="sk">Gherkin</span>
-          <span class="sk">Page Object Model</span><span class="sk">Data-Driven Testing</span>
+        <div class="sk-title">Manual Testing</div>
+        <div class="pills">
+          <span class="pill">Functional Testing</span>
+          <span class="pill">Regression Testing</span>
+          <span class="pill">Integration Testing</span>
+          <span class="pill">Exploratory Testing</span>
+          <span class="pill">End-to-End Testing</span>
+          <span class="pill">Smoke &amp; Sanity</span>
+          <span class="pill">UAT</span>
         </div>
       </div>
+
       <div class="skill-card">
-        <div class="sk-head"><div class="sk-ico"><i class="fas fa-vial"></i></div><div class="sk-cat">Manual Testing</div></div>
-        <div class="sk-tags">
-          <span class="sk hot">Shift Left Testing</span><span class="sk hot">Exploratory Testing</span>
-          <span class="sk hot">Functional Testing</span><span class="sk hot">Regression Testing</span>
-          <span class="sk">Destructive Testing</span><span class="sk">System Testing</span>
-          <span class="sk">Integration Testing</span><span class="sk">UAT</span>
+        <div class="sk-title">Test Automation &amp; OOP</div>
+        <div class="pills">
+          <span class="pill">Playwright (JavaScript)</span>
+          <span class="pill">Cypress (JavaScript)</span>
+          <span class="pill">Hybrid Test Framework</span>
+          <span class="pill">BDD / Cucumber</span>
+          <span class="pill">Page Object Model (OOP)</span>
+          <span class="pill">OOP - Class / Inheritance</span>
+          <span class="pill">GitHub Actions CI</span>
         </div>
       </div>
+
       <div class="skill-card">
-        <div class="sk-head"><div class="sk-ico"><i class="fas fa-plug"></i></div><div class="sk-cat">API &amp; Data Testing</div></div>
-        <div class="sk-tags">
-          <span class="sk hot">Postman</span><span class="sk">REST API Testing</span>
-          <span class="sk">JSON Validation</span><span class="sk hot">Oracle SQL</span>
-          <span class="sk">SQL Data Validation</span>
+        <div class="sk-title">API &amp; Database Testing</div>
+        <div class="pills">
+          <span class="pill">Postman</span>
+          <span class="pill">Newman - REST Collections</span>
+          <span class="pill">REST API Validation</span>
+          <span class="pill">Oracle SQL</span>
+          <span class="pill">Database Validation</span>
         </div>
       </div>
+
       <div class="skill-card">
-        <div class="sk-head"><div class="sk-ico"><i class="fas fa-infinity"></i></div><div class="sk-cat">CI/CD &amp; DevOps</div></div>
-        <div class="sk-tags">
-          <span class="sk hot">Jenkins</span><span class="sk hot">GitHub Actions</span>
-          <span class="sk">Git</span><span class="sk">Jira</span>
-          <span class="sk">Confluence</span><span class="sk">Chrome DevTools</span>
+        <div class="sk-title">Specialist Disciplines</div>
+        <div class="pills">
+          <span class="pill">GDPR Compliance Testing</span>
+          <span class="pill">WCAG 2.1 Accessibility</span>
+          <span class="pill">Mobile Testing - iOS/Android</span>
+          <span class="pill">AI Agentic Testing - Claude AI</span>
+          <span class="pill">Risk-Based Testing</span>
+          <span class="pill">Shift-Left Testing</span>
         </div>
       </div>
+
       <div class="skill-card">
-        <div class="sk-head"><div class="sk-ico"><i class="fas fa-users-cog"></i></div><div class="sk-cat">Process &amp; Methodology</div></div>
-        <div class="sk-tags">
-          <span class="sk hot">Agile / Scrum</span><span class="sk">Kanban</span>
-          <span class="sk">Bug Lifecycle Management</span><span class="sk">Root Cause Analysis</span>
-          <span class="sk">Risk-Based Testing</span><span class="sk">Stakeholder Management</span>
+        <div class="sk-title">QA Process &amp; Documentation</div>
+        <div class="pills">
+          <span class="pill">QA Process Ownership</span>
+          <span class="pill">Requirement Traceability (RTM)</span>
+          <span class="pill">Test Planning &amp; Strategy</span>
+          <span class="pill">Defect Triaging</span>
+          <span class="pill">Severity Classification</span>
+          <span class="pill">Weekly Status Reports</span>
+          <span class="pill">QA Documentation</span>
         </div>
       </div>
+
       <div class="skill-card">
-        <div class="sk-head"><div class="sk-ico"><i class="fas fa-certificate"></i></div><div class="sk-cat">Frameworks &amp; Standards</div></div>
-        <div class="sk-tags">
-          <span class="sk hot">ISTQB Foundation 4.0</span><span class="sk hot">Shift Left Testing</span>
-          <span class="sk">Cross-browser Testing</span><span class="sk">Parallel Execution</span>
-          <span class="sk">Smoke Testing</span><span class="sk">Sanity Testing</span>
+        <div class="sk-title">Tools &amp; CI/CD</div>
+        <div class="pills">
+          <span class="pill">Jenkins</span>
+          <span class="pill">GitHub Actions</span>
+          <span class="pill">JIRA</span>
+          <span class="pill">TestRail</span>
+          <span class="pill">Confluence</span>
+          <span class="pill">SharePoint</span>
+          <span class="pill">Git / GitHub</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="container">
-    <h2 class="section-title reveal">Experience</h2>
+  <div class="section-inner">
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">Consistent delivery across regulated and complex product environments</p>
     <div class="timeline reveal">
 
+      <!-- Berlin -->
       <div class="exp-item">
-        <div class="exp-dot"><i class="fas fa-code"></i></div>
-        <div class="exp-card">
-          <div class="exp-head">
-            <div>
-              <div class="exp-role">QA Technical Development &mdash; Playwright &amp; Automation</div>
-              <div class="exp-co">Self-Directed Professional Development &nbsp;&middot;&nbsp; Berlin, Germany</div>
-            </div>
-            <div style="display:flex;gap:.45rem;align-items:center;flex-wrap:wrap">
-              <span class="exp-period">Aug 2025 &ndash; Present</span>
-              <span class="cbadge">Current</span>
-            </div>
-          </div>
-          <ul class="exp-duties">
-            <li>Relocated from London to Berlin, August 2025, following marriage. Permanently settled. Family Reunion Visa &mdash; full work authorisation, no sponsorship required.</li>
-            <li>Built and published end-to-end Playwright automation framework from scratch &mdash; Page Object Model covering login, product catalogue, cart, and checkout. <a href="https://github.com/sonalkajrrolkar1995/saucedemo-playwright-framework" target="_blank" style="color:var(--p)">View on GitHub &rarr;</a></li>
-            <li>Built QA Engineer technical challenge framework demonstrating full automation and test strategy capability. <a href="https://github.com/sonalkajrrolkar1995/Sonal_Kajrolkar_QA_Engineer_Challenge" target="_blank" style="color:var(--p)">View on GitHub &rarr;</a></li>
-            <li>Advanced Cypress.io, TypeScript, and BDD expertise aligned with German enterprise QA standards.</li>
+        <div class="exp-dot"></div>
+        <div class="exp-role">Professional Development - Berlin</div>
+        <div class="exp-company">Independent - Berlin, Germany</div>
+        <div class="exp-meta">21 August 2025 - Present &nbsp;|&nbsp; Relocated to Berlin to be with husband (marriage)</div>
+        <div class="exp-body">
+          <ul>
+            <li>Designed and published a Playwright JavaScript framework: BDD/Cucumber specifications, Page Object Model (OOP architecture), and GitHub Actions CI pipeline - publicly demonstrating current engineering standards.</li>
+            <li>Built a second Playwright JavaScript suite covering functional test cases, REST API automation via Postman/Newman collections, exploratory testing documentation, and structured defect reports with severity classification.</li>
+            <li>Deepened specialist competencies: AI Agentic Testing using Claude AI, WCAG 2.1 accessibility test design, GDPR compliance validation, and mobile (iOS/Android) test strategy development.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="ttag">Playwright</span><span class="ttag">Cypress.io</span><span class="ttag">JavaScript</span>
-            <span class="ttag">TypeScript</span><span class="ttag">BDD / Cucumber</span><span class="ttag">GitHub Actions</span>
-          </div>
         </div>
       </div>
 
+      <!-- Expleo -->
       <div class="exp-item">
-        <div class="exp-dot"><i class="fas fa-briefcase"></i></div>
-        <div class="exp-card">
-          <div class="exp-head">
-            <div>
-              <div class="exp-role">QA Engineer</div>
-              <div class="exp-co">Expleo Technology &nbsp;&middot;&nbsp; London, United Kingdom</div>
-            </div>
-            <span class="exp-period">Nov 2021 &ndash; Aug 2025</span>
-          </div>
-          <p style="color:var(--mut);font-size:.83rem;margin-bottom:.45rem">Purchasing interface systems, procurement platforms, and enterprise software.</p>
-          <ul class="exp-duties">
-            <li>Managed and prioritised bug reports for operational purchasing interface systems &mdash; every engineering effort mapped to its business value.</li>
-            <li>Implemented Cypress.io and Playwright automated test suites for frontend JavaScript applications &mdash; reduced regression cycle time by 30%.</li>
-            <li>Improved developer first-pass fix rates by 25% through Browser DevTools root-cause analysis and precise, reproducible bug reports.</li>
-            <li>Validated backend data integrity for purchasing modules via complex Oracle SQL queries.</li>
-            <li>Tested and confirmed JSON API responses for buying, procurement, and logistics business teams using Postman.</li>
-            <li>Applied exploratory and destructive manual testing to identify edge cases beyond automation coverage.</li>
-            <li>Coordinated cross-functional testing in Agile Scrum and Kanban sprints.</li>
+        <div class="exp-dot"></div>
+        <div class="exp-role">QA Engineer</div>
+        <div class="exp-company">Expleo Technology - Belfast, United Kingdom</div>
+        <div class="exp-meta">November 2021 - August 2025 - 3 years 10 months</div>
+        <div class="exp-body">
+          <ul>
+            <li>Owned the complete QA process across concurrent product streams: requirement analysis, risk-based test strategy, manual execution, and release sign-off with full stakeholder reporting.</li>
+            <li>Applied Shift-Left Testing - embedded QA from sprint planning stage, identifying specification gaps before development commenced and reducing late-stage rework costs.</li>
+            <li>Built hybrid test frameworks using Cypress and Playwright (JavaScript) - OOP-based Page Object Model architecture targeting high-risk regression areas; REST API collections automated via Postman/Newman within Jenkins and GitHub Actions CI.</li>
+            <li>Delivered GDPR compliance testing, WCAG 2.1 accessibility validation, and mobile (iOS/Android) functional testing as standard sprint deliverables.</li>
+            <li>Maintained RTM per product stream; produced weekly QA status reports and defect trend analysis; managed test assets in TestRail, documentation in Confluence and SharePoint, defects in JIRA.</li>
           </ul>
-          <div class="exp-results">
-            <div class="exp-results-title">Key Results</div>
-            <ul class="exp-duties" style="margin-top:.28rem">
-              <li>25% improvement in developer first-pass fix rates through precise root-cause reporting.</li>
-              <li>30% reduction in regression cycle time via Cypress AND Playwright automation suites.</li>
-            </ul>
-          </div>
-          <div class="exp-tech">
-            <span class="ttag">Cypress.io</span><span class="ttag">Playwright</span><span class="ttag">JavaScript</span>
-            <span class="ttag">Postman</span><span class="ttag">Oracle SQL</span>
-            <span class="ttag">Chrome DevTools</span><span class="ttag">Agile / Scrum</span>
-          </div>
+          <span class="exp-result">25% improvement in developer first-pass fix rates - 30% reduction in regression cycle time</span>
         </div>
       </div>
 
+      <!-- Datamatics -->
       <div class="exp-item">
-        <div class="exp-dot"><i class="fas fa-laptop-code"></i></div>
-        <div class="exp-card">
-          <div class="exp-head">
-            <div>
-              <div class="exp-role">Software QA Engineer</div>
-              <div class="exp-co">Datamatics Infotech &nbsp;&middot;&nbsp; London, United Kingdom</div>
-            </div>
-            <span class="exp-period">Dec 2017 &ndash; Oct 2021</span>
-          </div>
-          <p style="color:var(--mut);font-size:.83rem;margin-bottom:.45rem">Fintech, banking, insurance, healthcare, and enterprise software client projects.</p>
-          <ul class="exp-duties">
-            <li>Achieved comprehensive test coverage for critical healthcare management platform features &mdash; substantially reducing manual testing efforts and improving overall product quality across manual and automation testing.</li>
-            <li>Applied Shift Left Testing &mdash; joined the development cycle early to prevent defects before they were written in. Prevention is always better than cure.</li>
-            <li>Spearheaded cross-functional collaboration between QA, development, and product teams, resulting in a 25% reduction in bug leakage to production and a 40% decrease in critical post-release issues.</li>
-            <li>Implemented best practices in test design and execution &mdash; 35% increase in defect detection during early stages of the development cycle.</li>
-            <li>Executed system testing and UAT for business-critical platforms &mdash; 20% reduction in production incidents.</li>
-            <li>Applied exploratory and destructive manual testing, consistently catching edge cases missed by scripted tests.</li>
-            <li>Built high-precision bug reproduction steps that accelerated full bug lifecycle closure.</li>
-            <li>Validated Oracle SQL data integrity and JSON API responses across client projects.</li>
+        <div class="exp-dot"></div>
+        <div class="exp-role">Software QA Engineer</div>
+        <div class="exp-company">Datamatics Infotech - London, United Kingdom</div>
+        <div class="exp-meta">December 2017 - October 2021 - 3 years 11 months</div>
+        <div class="exp-body">
+          <ul>
+            <li>Executed structured manual test cycles - functional, regression, integration, and end-to-end - for enterprise web and data processing applications across multiple industry clients.</li>
+            <li>Implemented Shift-Left Testing: QA review at requirement and design stage, detecting ambiguities before development and reducing defect injection at source.</li>
+            <li>Applied session-based exploratory testing to identify defects outside scripted coverage - most effective during integration and data migration phases.</li>
+            <li>Maintained full QA documentation per project: test plans, RTM, defect reports, root cause analysis, and post-release review - aligned with ISTQB standards.</li>
+            <li>Triaged defects by severity and business impact; led structured defect review meetings; applied risk-based test prioritisation per sprint cycle.</li>
           </ul>
-          <div class="exp-results">
-            <div class="exp-results-title">Key Results</div>
-            <ul class="exp-duties" style="margin-top:.28rem">
-              <li>35% increase in defect detection via Shift Left Testing.</li>
-              <li>25% reduction in bug leakage to production &nbsp;&middot;&nbsp; 40% decrease in critical post-release issues.</li>
-              <li>20% reduction in production incidents through systematic UAT and regression coverage.</li>
-            </ul>
-          </div>
-          <div class="exp-tech">
-            <span class="ttag">Manual Testing</span><span class="ttag">Exploratory Testing</span>
-            <span class="ttag">Shift Left Testing</span><span class="ttag">Oracle SQL</span>
-            <span class="ttag">Postman</span><span class="ttag">UAT</span><span class="ttag">Agile</span>
-          </div>
+          <span class="exp-result">35% increase in defect detection - 25% reduction in bug leakage - 40% fewer critical post-release issues - 20% reduction in production incidents</span>
         </div>
       </div>
 
@@ -541,231 +420,154 @@
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="container">
-    <h2 class="section-title reveal">GitHub Projects</h2>
-    <div class="proj-grid reveal">
+  <div class="section-inner">
+    <h2 class="section-title">GitHub Projects</h2>
+    <p class="section-sub">Live public repositories - current capability demonstrated, not just claimed</p>
+    <div class="projects-grid reveal">
 
       <div class="proj-card">
-        <div class="proj-hdr">
-          <div class="proj-ico-row">
-            <div class="proj-ico"><i class="fas fa-theater-masks"></i></div>
-            <div class="proj-links">
-              <a href="https://github.com/sonalkajrrolkar1995/saucedemo-playwright-framework" target="_blank" class="proj-lnk" title="View on GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="proj-title">Playwright Automation Framework</div>
-          <div class="proj-sub">saucedemo-playwright-framework</div>
+        <div class="proj-type">Automation Framework - JavaScript</div>
+        <h3 class="proj-title">Playwright E2E Framework - SauceDemo</h3>
+        <p class="proj-desc">
+          Production-structured Playwright framework in JavaScript. Demonstrates professional hybrid framework design: BDD/Cucumber, OOP-based Page Object Model, and CI via GitHub Actions.
+        </p>
+        <ul class="proj-feats">
+          <li>JavaScript + Playwright - OOP Page Object Model architecture</li>
+          <li>BDD/Cucumber - business-readable, stakeholder-friendly specifications</li>
+          <li>GitHub Actions CI - automated execution on every push</li>
+          <li>Cross-browser: Chromium, Firefox, WebKit</li>
+          <li>Hybrid framework structure - extensible for API and UI test layers</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="proj-tag">Playwright</span>
+          <span class="proj-tag">JavaScript</span>
+          <span class="proj-tag">BDD/Cucumber</span>
+          <span class="proj-tag">OOP</span>
+          <span class="proj-tag">GitHub Actions</span>
         </div>
-        <div class="proj-body">
-          <p class="proj-desc">End-to-end Playwright automation framework built from a blank project. Page Object Model architecture. Covers the full user journey: login, product catalogue, cart, checkout. Cross-browser. Fully isolated tests. CI/CD pipeline integrated.</p>
-          <ul class="proj-feats">
-            <li>Page Object Model &mdash; reusable, maintainable structure</li>
-            <li>Full E2E journey from login to checkout</li>
-            <li>Cross-browser: Chromium, Firefox, WebKit</li>
-            <li>Fully isolated tests &mdash; no shared state</li>
-            <li>GitHub Actions CI/CD pipeline</li>
-          </ul>
-          <div class="proj-tags">
-            <span class="ptag">Playwright</span><span class="ptag">JavaScript</span>
-            <span class="ptag">Page Object Model</span><span class="ptag">GitHub Actions</span><span class="ptag">Cross-browser</span>
-          </div>
-        </div>
+        <a href="https://github.com/sonalkajrrolkar1995/saucedemo-playwright-framework" target="_blank" class="proj-link">View Repository -&gt;</a>
       </div>
 
       <div class="proj-card">
-        <div class="proj-hdr">
-          <div class="proj-ico-row">
-            <div class="proj-ico"><i class="fas fa-flask"></i></div>
-            <div class="proj-links">
-              <a href="https://github.com/sonalkajrrolkar1995/Sonal_Kajrolkar_QA_Engineer_Challenge" target="_blank" class="proj-lnk" title="View on GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="proj-title">QA Engineer Technical Challenge</div>
-          <div class="proj-sub">Sonal_Kajrolkar_QA_Engineer_Challenge</div>
+        <div class="proj-type">QA Challenge - JavaScript</div>
+        <h3 class="proj-title">QA Engineer Challenge - Sonal Kajrolkar</h3>
+        <p class="proj-desc">
+          Full-cycle QA challenge in Playwright JavaScript: manual test design, REST API automation via Postman/Newman, exploratory testing, and structured defect reporting.
+        </p>
+        <ul class="proj-feats">
+          <li>JavaScript + Playwright - functional and regression test suites</li>
+          <li>REST API automation - Postman collections executed via Newman</li>
+          <li>Manual test cases with acceptance criteria and traceability</li>
+          <li>Exploratory testing session notes and defect findings log</li>
+          <li>Defect reports with severity, priority, and reproducible steps</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="proj-tag">Playwright</span>
+          <span class="proj-tag">JavaScript</span>
+          <span class="proj-tag">Postman/Newman</span>
+          <span class="proj-tag">Manual Testing</span>
+          <span class="proj-tag">Defect Reporting</span>
         </div>
-        <div class="proj-body">
-          <p class="proj-desc">Complete QA technical challenge solution covering requirements analysis, test strategy, automation implementation, and reporting. Playwright and JavaScript. API and UI test coverage. Demonstrates full QA engineering capability from requirements to sign-off.</p>
-          <ul class="proj-feats">
-            <li>Full QA cycle: requirements to reporting</li>
-            <li>API and UI coverage in one framework</li>
-            <li>Structured test case design and strategy</li>
-            <li>BDD approach with Gherkin scenarios</li>
-          </ul>
-          <div class="proj-tags">
-            <span class="ptag">Playwright</span><span class="ptag">JavaScript</span>
-            <span class="ptag">API Testing</span><span class="ptag">BDD</span><span class="ptag">Test Strategy</span>
-          </div>
-        </div>
+        <a href="https://github.com/sonalkajrrolkar1995/Sonal_Kajrolkar_QA_Engineer_Challenge" target="_blank" class="proj-link">View Repository -&gt;</a>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <h2 class="section-title reveal">Education</h2>
-    <div class="edu-grid reveal">
-      <div class="edu-card">
-        <div class="edu-ico"><i class="fas fa-graduation-cap"></i></div>
-        <div>
-          <div class="edu-deg">Bachelor of Engineering &mdash; Information Technology</div>
-          <div class="edu-sch">University of Mumbai</div>
-          <div class="edu-yr">2014 &ndash; 2017</div>
-          <span class="edu-note">Anabin H+ &middot; Valid in Germany</span>
-        </div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-ico"><i class="fas fa-award"></i></div>
-        <div>
-          <div class="edu-deg">Diploma in Information Technology</div>
-          <div class="edu-sch">MSBTE Mumbai</div>
-          <div class="edu-yr">2014</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
 <section id="certifications">
-  <div class="container">
-    <h2 class="section-title reveal">Certifications</h2>
+  <div class="section-inner">
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-sub">Industry-recognised credentials - verified on LinkedIn</p>
     <div class="certs-grid reveal">
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-ico"><i class="fas fa-certificate"></i></div>
-          <div>
-            <div class="cert-name">ISTQB Certified Tester &mdash; Foundation Level 4.0</div>
-            <div class="cert-issuer">ISTQB &mdash; International Software Testing Qualifications Board</div>
-            <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
-          </div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-ico"><i class="fas fa-theater-masks"></i></div>
-          <div>
-            <div class="cert-name">Playwright &mdash; End-to-End Test Automation</div>
-            <div class="cert-issuer">Microsoft / Playwright</div>
-            <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
-          </div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-ico"><i class="fas fa-check-double"></i></div>
-          <div>
-            <div class="cert-name">Cypress.io &mdash; Test Automation</div>
-            <div class="cert-issuer">Cypress.io</div>
-            <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
-          </div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-ico"><i class="fas fa-plug"></i></div>
-          <div>
-            <div class="cert-name">API Validation and Testing &mdash; Postman</div>
-            <div class="cert-issuer">Postman</div>
-            <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
-          </div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-ico"><i class="fas fa-database"></i></div>
-          <div>
-            <div class="cert-name">SQL for Testers &mdash; Oracle SQL</div>
-            <div class="cert-issuer">Oracle / Database Testing</div>
-            <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
-          </div>
-        </div>
-      </div>
+      <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-card">
+        <div class="cert-icon">🏆</div>
+        <div class="cert-name">ISTQB Foundation Level 4.0</div>
+        <div class="cert-org">ISTQB - International</div>
+      </a>
+      <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-card">
+        <div class="cert-icon">🎭</div>
+        <div class="cert-name">Playwright End-to-End Testing</div>
+        <div class="cert-org">LinkedIn Learning</div>
+      </a>
+      <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-card">
+        <div class="cert-icon">⚡</div>
+        <div class="cert-name">Cypress.io Test Automation</div>
+        <div class="cert-org">LinkedIn Learning</div>
+      </a>
+      <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-card">
+        <div class="cert-icon">📮</div>
+        <div class="cert-name">API Validation with Postman</div>
+        <div class="cert-org">LinkedIn Learning</div>
+      </a>
+      <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="cert-card">
+        <div class="cert-icon">🗄️</div>
+        <div class="cert-name">SQL for Testers - Oracle SQL</div>
+        <div class="cert-org">Oracle / LinkedIn Learning</div>
+      </a>
     </div>
-    <p style="text-align:center;color:var(--mut);font-size:.79rem;margin-top:1.7rem">
-      All certifications verified on LinkedIn &mdash;
-      <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" style="color:var(--p)">linkedin.com/in/sonalkajrolkar</a>
-    </p>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <h2 class="section-title reveal">Contact</h2>
+  <div class="section-inner">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">Berlin, Germany - open to roles across all of Germany</p>
     <div class="contact-grid reveal">
-      <div class="contact-intro">
-        <h3>Hiring for QA Engineer in Germany?</h3>
-        <p>Family Reunion Visa. Full work authorisation. No sponsorship required. Available immediately. I respond fast.</p>
-        <ul class="clist">
-          <li><div class="cico"><i class="fas fa-map-marker-alt"></i></div><div><div class="clabel">Location</div><div class="cval">Berlin, Germany</div></div></li>
-          <li><div class="cico"><i class="fas fa-envelope"></i></div><div><div class="clabel">Email</div><div class="cval"><a href="mailto:sonal.kajrolkar@outlook.com">sonal.kajrolkar@outlook.com</a></div></div></li>
-          <li><div class="cico"><i class="fas fa-phone"></i></div><div><div class="clabel">Phone</div><div class="cval"><a href="tel:+4917636340214">+49 17 636340214</a></div></div></li>
-          <li><div class="cico"><i class="fab fa-linkedin-in"></i></div><div><div class="clabel">LinkedIn</div><div class="cval"><a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank">linkedin.com/in/sonalkajrolkar</a></div></div></li>
-          <li><div class="cico"><i class="fab fa-github"></i></div><div><div class="clabel">GitHub</div><div class="cval"><a href="https://github.com/sonalkajrrolkar1995" target="_blank">github.com/sonalkajrrolkar1995</a></div></div></li>
-          <li><div class="cico"><i class="fas fa-id-card"></i></div><div><div class="clabel">Work Authorisation</div><div class="cval">Family Reunion Visa &middot; No Sponsorship Required</div></div></li>
-        </ul>
-        <div class="loc-box">
-          <h4><i class="fas fa-location-dot"></i>Open to All Germany</h4>
-          <div class="ltags">
-            <span class="ltag">Berlin</span><span class="ltag">Hamburg</span><span class="ltag">Munich</span>
-            <span class="ltag">Frankfurt</span><span class="ltag">Stuttgart</span><span class="ltag">Dusseldorf</span>
-            <span class="ltag">Remote</span><span class="ltag">Hybrid</span><span class="ltag">On-site</span>
-          </div>
+      <div class="contact-info">
+        <h3>Get in touch.</h3>
+        <p>
+          Based in Berlin. Open to QA Engineer positions across Germany - on-site, hybrid, or remote. ISTQB certified. 7+ years experience. Full work authorisation with no administrative requirements.
+        </p>
+        <div class="c-links">
+          <a href="mailto:sonal.kajrolkar@outlook.com" class="c-link">
+            <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></div>
+            sonal.kajrolkar@outlook.com
+          </a>
+          <a href="tel:+4917636340214" class="c-link">
+            <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.23 2 2 0 012.06 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            +49 17 636340214
+          </a>
+          <a href="https://www.linkedin.com/in/sonalkajrolkar/" target="_blank" class="c-link">
+            <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+            linkedin.com/in/sonalkajrolkar
+          </a>
+          <a href="https://github.com/sonalkajrrolkar1995" target="_blank" class="c-link">
+            <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div>
+            github.com/sonalkajrrolkar1995
+          </a>
         </div>
       </div>
       <div class="contact-form">
-        <div class="ftitle"><i class="fas fa-paper-plane"></i>Send a Message</div>
-        <form onsubmit="doSubmit(event)">
-          <div class="frow">
-            <div class="fg"><label>Name</label><input type="text" placeholder="Your name" required/></div>
-            <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required/></div>
-          </div>
-          <div class="fg"><label>Subject</label><input type="text" placeholder="QA Engineer role enquiry"/></div>
-          <div class="fg"><label>Message</label><textarea placeholder="Hi Sonal, we have a QA Engineer role..."></textarea></div>
-          <button type="submit" class="fsub"><i class="fas fa-paper-plane"></i> Send Message</button>
-        </form>
+        <div class="fg"><label>Name</label><input type="text" placeholder="Your name"/></div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
+        <div class="fg"><label>Message</label><textarea placeholder="Describe the role or opportunity..."></textarea></div>
+        <a href="mailto:sonal.kajrolkar@outlook.com" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    <div class="flogo">Sonal Kajrolkar</div>
-    <nav class="fnav">
-      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
-      <a href="#experience">Experience</a><a href="#projects">Projects</a>
-      <a href="#education">Education</a><a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <p class="fcopy">&copy; 2026 <span style="color:var(--p)">Sonal Kajrolkar</span> &nbsp;&middot;&nbsp; QA Engineer &nbsp;&middot;&nbsp; Berlin &nbsp;&middot;&nbsp; <a href="mailto:sonal.kajrolkar@outlook.com">sonal.kajrolkar@outlook.com</a></p>
-  </div>
+  <p>&copy; 2025 <span>Sonal Kajrolkar</span> - QA Engineer - Berlin, Germany</p>
 </footer>
 
 <script>
-  const hbg=document.getElementById('hbg'),nl=document.getElementById('navLinks');
-  hbg.addEventListener('click',()=>nl.classList.toggle('open'));
-  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
-  const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');ob.unobserve(x.target);}});},{threshold:.06});
-  document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
-  const secs=document.querySelectorAll('section[id]');
-  window.addEventListener('scroll',()=>{
-    const y=window.scrollY+85;
-    secs.forEach(s=>{
-      const a=document.querySelector(`.nav-links a[href="#${s.id}"]`);
-      if(a)a.classList.toggle('active',y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight);
-    });
-    document.getElementById('navbar').style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,.55)':'none';
-  });
-  function doSubmit(e){
-    e.preventDefault();
-    const b=e.target.querySelector('.fsub');
-    b.innerHTML='<i class="fas fa-check"></i> Sent!';b.style.background='#00e87a';b.style.color='#000';
-    setTimeout(()=>{b.innerHTML='<i class="fas fa-paper-plane"></i> Send Message';b.style.background='';b.style.color='';e.target.reset();},3000);
-  }
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const hamburger = document.getElementById('hamburger');
+const navLinksEl = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => navLinksEl.classList.toggle('open'));
+navLinks.forEach(a => a.addEventListener('click', () => navLinksEl.classList.remove('open')));
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+}, { passive: true });
+const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
