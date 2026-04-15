@@ -26,35 +26,39 @@ body{font-family:'Inter',sans-serif;background:#dde3ee;min-height:100vh;padding:
 /* SIDEBAR */
 .sidebar{background:var(--sidebar);border-right:1px solid var(--sidebar-border);display:flex;flex-direction:column;}
 
-/* Name header - full blue banner, white text */
+/* Name header - light background, Kajrolkar in blue */
 .cv-name-banner{
-  background:var(--blue);
-  padding:28px 22px 22px;
+  background:var(--sidebar);
+  border-bottom:1px solid var(--sidebar-border);
+  padding:28px 22px 20px;
   text-align:center;
 }
 .cv-photo{
   width:104px;height:104px;border-radius:50%;
-  object-fit:cover;border:3px solid rgba(255,255,255,.5);
+  object-fit:cover;border:3px solid var(--blue);
   display:block;margin:0 auto 12px;
 }
 .cv-name-banner h1{
   font-size:1.25rem;font-weight:800;
-  color:#ffffff;
+  color:var(--text);
   line-height:1.2;letter-spacing:.01em;
 }
+.cv-name-banner h1 span{
+  color:var(--blue);
+}
 .cv-name-banner p{
-  font-size:.7rem;color:rgba(255,255,255,.75);
+  font-size:.7rem;color:var(--muted);
   font-weight:500;text-transform:uppercase;
   letter-spacing:.09em;margin-top:5px;
 }
 
 /* Work auth box - stated once */
 .auth-box{
-  background:rgba(10,94,176,.12);
+  background:var(--blue);
   border-bottom:1px solid var(--sidebar-border);
   padding:10px 22px;
 }
-.auth-box p{font-size:.72rem;color:var(--blue);line-height:1.6;font-weight:600;text-align:center;}
+.auth-box p{font-size:.72rem;color:#fff;line-height:1.6;font-weight:600;text-align:center;}
 
 .sidebar-body{padding:20px 22px;display:flex;flex-direction:column;gap:20px;}
 
@@ -145,7 +149,7 @@ body{font-family:'Inter',sans-serif;background:#dde3ee;min-height:100vh;padding:
     <!-- Blue name banner - Kajrolkar = white, no blue background chip -->
     <div class="cv-name-banner">
       <img src="sonal-photo.jpg" alt="Sonal Kajrolkar" class="cv-photo"/>
-      <h1>Sonal Kajrolkar</h1>
+      <h1>Sonal <span>Kajrolkar</span></h1>
       <p>QA Engineer - 7+ Years</p>
     </div>
 
