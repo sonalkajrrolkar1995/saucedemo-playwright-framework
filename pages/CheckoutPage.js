@@ -4,7 +4,6 @@ class CheckoutPage {
   constructor(page) {
     this.page = page;
 
-    // Step 1 locators
     this.firstNameInput = page.getByTestId('firstName');
     this.lastNameInput = page.getByTestId('lastName');
     this.postalCodeInput = page.getByTestId('postalCode');
@@ -12,7 +11,6 @@ class CheckoutPage {
     this.cancelButton = page.getByTestId('cancel');
     this.errorMessage = page.getByTestId('error');
 
-    // Step 2 locators
     this.subtotalLabel = page.getByTestId('subtotal-label');
     this.taxLabel = page.getByTestId('tax-label');
     this.totalLabel = page.getByTestId('total-label');

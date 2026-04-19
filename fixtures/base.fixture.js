@@ -34,7 +34,6 @@ const test = base.extend({
     await use(new MenuPage(page));
   },
 
-  // Logs in before the test and hands back a page already on /inventory.html
   loggedInPage: async ({ page }, use) => {
     const loginPage = new LoginPage(page);
     await loginPage.goto();

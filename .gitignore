@@ -3,5 +3,6 @@ playwright-report/
 test-results/
 .playwright-mcp/
 .claude/
+CLAUDE.md
 *.png
 *.zip
